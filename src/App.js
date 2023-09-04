@@ -1,24 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import awsconfig from "./aws-exports";
+import { API, Amplify } from "aws-amplify";
+import {
+  AmplifyAuthenticator,
+  AmplifySignUp,
+  AmplifySignOut,
+} from "@aws-amplify/ui-react";
+import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
+
+Amplify.configure(awsconfig);
 
 function App() {
-  return (
+  const [response, setResponse] = useState(null);
+
+  const [authState, setAuthState] = useState();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    return onAuthUIStateChange((nextAuthState, authData) => {
+      setAuthState(nextAuthState);
+      setUser(authData);
+    });
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await API.get("pythonapi", "/hello");
+        setResponse(result);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return authState === AuthState.SignedIn && user ? (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Hello, {user.username}</h2>
+      {response && (
+        <h2>{JSON.stringify(response.message, null, 2)}</h2>
+      )}
+      <AmplifySignOut />
     </div>
+  ) : (
+    <AmplifyAuthenticator>
+      <AmplifySignUp
+        slot="sign-up"
+        formFields={[
+          { type: "username" },
+          { type: "password" },
+          { type: "email" },
+        ]}
+      />
+      <h2>User Created!</h2>
+      {response && (
+        <h2>{JSON.stringify(response.message, null, 2)}</h2>
+      )}
+    </AmplifyAuthenticator>
   );
 }
 
