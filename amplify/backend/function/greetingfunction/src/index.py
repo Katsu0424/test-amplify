@@ -6,7 +6,7 @@ def handler(event, context):
   current_time = datetime.datetime.now()
 
   body = {
-      'message': 'Hello, the current time is ' + str(current_time)
+      'message': 'aaa Hello, the current time is ' + str(current_time)
   }
 
   response = {
