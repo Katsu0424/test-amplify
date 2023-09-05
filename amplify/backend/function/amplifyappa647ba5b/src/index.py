@@ -1,5 +1,5 @@
 import json
-import dateutil
+from dateutil.parser import parse
 
 def handler(event, context):
   print('received event:')
