@@ -29,6 +29,10 @@ function App() {
       try {
         const result = await API.get("pythonapi", "/hello");
         setResponse(result);
+        const result1 = await API.get("api69f93de5", "/");
+        console.log('#################');
+        console.log(result1);
+        console.log('#################');
       } catch (error) {
         console.error("Error fetching data: ", error);
       }

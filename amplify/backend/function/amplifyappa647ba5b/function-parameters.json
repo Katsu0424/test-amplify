@@ -1,0 +1,11 @@
+{
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "amplifyappamplifyLayer",
+      "env": "dev",
+      "version": 1,
+      "isLatestVersionSelected": false
+    }
+  ]
+}

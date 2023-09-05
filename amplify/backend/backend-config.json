@@ -1,5 +1,19 @@
 {
   "api": {
+    "api69f93de5": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "amplifyappa647ba5b"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "pythonapi": {
       "dependsOn": [
         {
@@ -42,6 +56,25 @@
     }
   },
   "function": {
+    "amplifyappa647ba5b": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "amplifyappamplifyLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "amplifyappamplifyLayer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    },
     "greetingfunction": {
       "build": true,
       "dependsOn": [],
@@ -50,6 +83,38 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_amplifyappa647ba5b_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyappa647ba5b"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyappa647ba5b_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyappa647ba5b"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyappamplifyLayer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyappamplifyLayer"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyappamplifyLayer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyappamplifyLayer"
+        }
+      ]
+    },
     "AMPLIFY_function_greetingfunction_deploymentBucketName": {
       "usedBy": [
         {

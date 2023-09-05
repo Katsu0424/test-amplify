@@ -1,5 +1,10 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
+    "api69f93de5": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
     "pythonapi": {
       "ApiId": "string",
       "ApiName": "string",
@@ -18,6 +23,16 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
+    "amplifyappa647ba5b": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "amplifyappamplifyLayer": {
+      "Arn": "string"
+    },
     "greetingfunction": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

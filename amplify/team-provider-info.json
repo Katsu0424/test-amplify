@@ -16,10 +16,19 @@
         "greetingfunction": {
           "deploymentBucketName": "amplify-amplifyapp-dev-164201-deployment",
           "s3Key": "amplify-builds/greetingfunction-5276477774664f624146-build.zip"
+        },
+        "amplifyappamplifyLayer": {
+          "deploymentBucketName": "amplify-amplifyapp-dev-164201-deployment",
+          "s3Key": "amplify-builds/amplifyappamplifyLayer-LambdaLayerVersion8966da9e-build.zip"
+        },
+        "amplifyappa647ba5b": {
+          "deploymentBucketName": "amplify-amplifyapp-dev-164201-deployment",
+          "s3Key": "amplify-builds/amplifyappa647ba5b-33554639755069477743-build.zip"
         }
       },
       "api": {
-        "pythonapi": {}
+        "pythonapi": {},
+        "api69f93de5": {}
       },
       "auth": {
         "amplifyapp462d90a0": {}

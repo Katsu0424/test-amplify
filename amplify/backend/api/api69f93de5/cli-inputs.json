@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/": {
+      "name": "/",
+      "lambdaFunction": "amplifyappa647ba5b",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
