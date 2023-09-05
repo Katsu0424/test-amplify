@@ -13,6 +13,7 @@ Amplify.configure(awsconfig);
 
 function App() {
   const [response, setResponse] = useState(null);
+  const [response1, setResponse1] = useState(null);
 
   const [authState, setAuthState] = useState();
   const [user, setUser] = useState();
@@ -30,9 +31,7 @@ function App() {
         const result = await API.get("pythonapi", "/hello");
         setResponse(result);
         const result1 = await API.get("api69f93de5", "/");
-        console.log('#################');
-        console.log(result1);
-        console.log('#################');
+        setResponse1(result1);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -46,6 +45,10 @@ function App() {
       <h2>Hello, {user.username}</h2>
       {response && (
         <h2>{JSON.stringify(response.message, null, 2)}</h2>
+      )}
+
+      {response1 && (
+        <h2>{JSON.stringify(response1.message, null, 2)}</h2>
       )}
       <AmplifySignOut />
     </div>

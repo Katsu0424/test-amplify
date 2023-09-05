@@ -1,18 +1,21 @@
 import json
-from dateutil.parser import parse
+import datetime
 
 def handler(event, context):
-  print('received event:')
-  print(event)
-  date_str = "2023-09-01 13:30:00"
-  dt = parse(date_str)
-  
-  return {
-      'statusCode': 200,
-      'headers': {
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
-      },
-      'body': json.dumps('aaa Hello from your new Amplify Python lambda!: ' + dt)
+
+  current_time = datetime.datetime.now()
+
+  body = {
+      'message': 'aaa Hello, the current time is ' + str(current_time)
   }
+
+  response = {
+      'statusCode': 200,
+      'body': json.dumps(body),
+      'headers': {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+  }
+  
+  return response
