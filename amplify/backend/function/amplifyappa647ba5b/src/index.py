@@ -6,6 +6,7 @@ def handler(event, context):
 
   current_time = datetime.datetime.now()
   next_month_time = current_time + relativedelta(months=+1)
+  print('test ok!')
 
   body = {
       'message': 'aaa Hello, the current time is ' + str(next_month_time)
